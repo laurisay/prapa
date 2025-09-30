@@ -1,0 +1,67 @@
+--------------
+Primera parte:
+--------------
+searchable_array_bag.hpp
+searchable_array_bag.cpp
+searchable_tree_bag.hpp
+searchable_tree_bag.cpp
+--------------
+Segunda parte:
+--------------
+set.hpp
+set.cpp
+
+
+---
+## Lo que el ejercicio quiere enseñarte:
+
+### 1. **Herencia Múltiple y el Problema del Diamante**
+```
+        bag (abstracta)
+       /   \
+array_bag   searchable_bag (abstracta)
+       \   /
+searchable_array_bag
+```
+- Cómo usar `virtual public` para resolver ambigüedad
+- Combinar implementación (array_bag) con interfaz (searchable_bag)
+
+### 2. **Polimorfismo en la práctica**
+```cpp
+searchable_bag *t = new searchable_tree_bag;  // Funciona con tree
+searchable_bag *a = new searchable_array_bag; // O con array
+```
+- El mismo código funciona con diferentes implementaciones
+- Abstracción: el usuario no necesita saber si es array o tree
+
+### 3. **Composición vs Herencia**
+- `searchable_array_bag` usa **herencia** (ES-UN array_bag)
+- `set` usa **composición** (TIENE-UN searchable_bag)
+- Cuándo usar cada patrón
+
+### 4. **Reutilización de código**
+- No reescribes insert(), print(), clear() - los heredas
+- Solo añades `has()` que faltaba
+- DRY (Don't Repeat Yourself)
+
+### 5. **Orthodox Canonical Form**
+- Constructor por defecto
+- Constructor de copia
+- Operador de asignación
+- Destructor
+- Gestión correcta de memoria en C++98
+
+### 6. **Abstracción por capas**
+```
+set (garantiza unicidad)
+    ↓
+searchable_bag (permite búsqueda)
+    ↓
+bag (operaciones básicas)
+```
+Cada capa añade funcionalidad sin modificar las anteriores.
+
+### **El mensaje principal:**
+"Puedes extender funcionalidad de clases existentes sin modificarlas, usando herencia múltiple para combinar características, y composición para cambiar comportamiento (bag→set)."
+
+Es un ejercicio clásico de **diseño orientado a objetos** en C++.
