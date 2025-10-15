@@ -1,0 +1,10 @@
+MATEMÁTICAS (Plano Cartesiano):     PROGRAMACIÓN (Arrays):
+        y↑                                  y↓
+        3│                           0 ┌─────────
+        2│                           1 │         
+        1│                           2 │         
+        0└────────► x                3 └─────────► x
+         0 1 2 3                       0 1 2 3
+
+En matemáticas: y++ sube              En arrays: y++ baja
+En matemáticas: y-- baja              En arrays: y-- sube

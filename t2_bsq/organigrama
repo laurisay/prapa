@@ -1,0 +1,15 @@
+MAIN
+ ├── Sin argumentos → process_input(NULL) → stdin
+ └── Con argumentos → process_input(archivo) → cada archivo
+         ↓
+    process_input()
+         ├── read_file() → Validación
+         │     ├── Lee parámetros
+         │     ├── Valida caracteres
+         │     └── Lee y valida mapa
+         ├── solve_bsq() → Encuentra cuadrado
+         │     ├── Crea matriz DP
+         │     ├── Aplica algoritmo
+         │     └── Marca solución
+         ├── print_map() → Imprime resultado
+         └── free_map() → Libera memoria
